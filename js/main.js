@@ -78,11 +78,22 @@ function initHero() {
   // Load first video as muted preview
   function loadPreview(idx) {
     const v = videos[idx];
-    if (!v || !previewVid) return;
+    if (!v) return;
+    const iframe = $('#hero-preview-iframe');
     currentIdx = idx;
-    previewVid.src = vidSrc(v.file);
-    previewVid.load();
-    previewVid.play().catch(() => {});
+
+    if (v.file.startsWith("http")) {
+      if (previewVid) { previewVid.pause(); previewVid.style.display = 'none'; }
+      if (iframe) { iframe.src = v.file; iframe.style.display = 'block'; }
+    } else {
+      if (iframe) { iframe.src = ''; iframe.style.display = 'none'; }
+      if (previewVid) {
+        previewVid.style.display = 'block';
+        previewVid.src = vidSrc(v.file);
+        previewVid.load();
+        previewVid.play().catch(() => {});
+      }
+    }
 
     if (npTitle) npTitle.textContent = v.title;
 
@@ -167,20 +178,30 @@ function initTheater() {
 
 function playInTheater(file, title, category) {
   const player = $('#theater-video-player');
+  const iframe = $('#theater-iframe-player');
   const ph     = $('#theater-ph');
   const tTitle = $('#theater-now-title');
   const tCat   = $('#theater-now-cat');
 
-  if (!player) return;
-
-  player.src = vidSrc(file);
-  player.load();
-  player.play().catch(() => {});
-  player.style.display = 'block';
-
   if (ph) ph.style.display = 'none';
   if (tTitle) tTitle.textContent = title;
   if (tCat)   tCat.textContent   = category || '—';
+
+  if (file.startsWith("http")) {
+    if (player) { player.pause(); player.style.display = 'none'; }
+    if (iframe) {
+      iframe.src = file;
+      iframe.style.display = 'block';
+    }
+  } else {
+    if (iframe) { iframe.src = ''; iframe.style.display = 'none'; }
+    if (player) {
+      player.style.display = 'block';
+      player.src = vidSrc(file);
+      player.load();
+      player.play().catch(() => {});
+    }
+  }
 
   // Scroll to theater
   const sec = $('#theater');
@@ -349,10 +370,12 @@ function initContactForm() {
 function initModal() {
   const backdrop = $('#video-modal');
   const player   = $('#modal-video-player');
+  const iframe   = $('#modal-iframe-player');
   const closeBtn = $('#modal-close');
 
   function close() {
     if (player) { player.pause(); player.src = ''; }
+    if (iframe) { iframe.src = ''; }
     if (backdrop) { backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden', 'true'); }
     document.body.style.overflow = '';
   }

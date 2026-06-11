@@ -143,6 +143,13 @@
             preload="metadata"
             aria-label="معاينة الفيديو"
           ></video>
+          <iframe
+            id="hero-preview-iframe"
+            class="h-preview-video"
+            style="display:none; border:none;"
+            allow="autoplay; fullscreen"
+            aria-label="معاينة الفيديو"
+          ></iframe>
 
           <!-- Overlay: click to play with sound in theater -->
           <div class="h-screen-overlay" id="hero-screen-overlay" role="button" tabindex="0" aria-label="انتقل للمسرح لمشاهدة الفيديو كاملاً">
@@ -266,6 +273,10 @@
           controls preload="none"
           style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:4;"
           aria-label="مشغل المسرح"></video>
+        <iframe id="theater-iframe-player"
+          style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none;background:#000;z-index:4;"
+          allow="autoplay; fullscreen"
+          aria-label="مشغل المسرح"></iframe>
 
         <div class="theater-scanlines" aria-hidden="true"></div>
       </div>
@@ -365,6 +376,7 @@
       <button class="modal-close" id="modal-close" aria-label="إغلاق">✕</button>
     </div>
     <video id="modal-video-player" controls preload="none" aria-label="مشغل الفيديو"></video>
+    <iframe id="modal-iframe-player" allow="autoplay; fullscreen" style="display:none; width:100%; height:100%; border:none; border-radius:12px 12px 0 0;" aria-label="مشغل الفيديو"></iframe>
     <div class="modal-foot"><p class="modal-desc" id="modal-desc"></p></div>
   </div>
 </div>

@@ -118,6 +118,24 @@ const SITE_CONFIG = {
       category: "إنتاج",
     },
     {
+      file: "https://drive.google.com/file/d/1zfbgKg9szpfLcdCRiUMbxEKUJmNmZIpc/preview",
+      title: "قوة النية — جودة عالية",
+      desc: "فيديو بجودة عالية (يعرض عبر درايف).",
+      category: "عرض",
+    },
+    {
+      file: "https://drive.google.com/file/d/1eCJKl6ugm1WADD00CB3RfY4rPSPNM2vY/preview",
+      title: "تسجيل الأقصى",
+      desc: "تسجيل نائلة كيوان (يعرض عبر درايف).",
+      category: "إنتاج",
+    },
+    {
+      file: "https://drive.google.com/file/d/1f0D34UM8Lijv8pGoyZf21DU4eyfxFToU/preview",
+      title: "Avatar IV",
+      desc: "فيديو الأفاتار الأساسي (يعرض عبر درايف).",
+      category: "إنتاج",
+    },
+    {
       file: "ScreenRecording_05-06-2026 22-53-54_1.mp4",
       title: "تسجيل الشاشة — ٢٢:٥٣",
       desc: "أضيفي وصفاً مختصراً لهذا الفيديو.",
