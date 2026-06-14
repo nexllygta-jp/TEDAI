@@ -5,14 +5,23 @@
 
 /* ── TABLET PORTRAIT / SMALL LAPTOP (Max: 1024px) ── */
 @media (max-width: 1024px) {
+  #hero {
+    height: auto;
+    min-height: 100vh;
+  }
   .h-container {
     grid-template-columns: 1fr;
-    gap: 60px;
-    padding-top: 30px;
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    align-items: start; /* Fixes vertical centering cut-off */
+    align-content: start;
+    min-height: auto; 
   }
   .h-text-col {
     order: 1; /* Title and stats first */
     text-align: center;
+    margin-top: 20px;
   }
   .h-text-col .h-eyebrow,
   .h-text-col .h-actions,
@@ -29,6 +38,7 @@
     max-width: 600px;
     margin: 0 auto;
     width: 100%;
+    margin-top: 30px; /* Space between text and stage */
   }
   .h-spots {
     opacity: 0.5; /* Reduce distraction */
@@ -54,25 +64,33 @@
 /* ── LARGE MOBILE / TABLET (Max: 768px) ── */
 @media (max-width: 768px) {
   :root {
-    --sv: 68px;
+    --sv: 60px;
   }
   /* Nav Bar Mobile Tweak */
   #navbar {
     padding: 0 16px;
-    background: rgba(2, 2, 3, 0.98); /* Ensure background is solid on mobile */
+    background: rgba(2, 2, 3, 0.98) !important; /* Force background on mobile */
+    border-bottom: 1px solid var(--b-glass);
   }
   .nav-inner {
-    height: 70px;
+    height: 60px;
+  }
+  .nav-logo-name {
+    font-size: 0.9rem;
+  }
+  .nav-logo-badge {
+    width: 26px;
+    height: 26px;
+    font-size: 0.6rem;
   }
   .nav-links {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 70px; /* Drop down below header */
+    top: 60px; /* Drop down below header */
     left: 0;
     right: 0;
     background: rgba(5, 5, 7, 0.98);
-    border-top: 1px solid var(--b-glass);
     border-bottom: 1px solid var(--b-red-xs);
     align-items: center;
     justify-content: center;
@@ -98,7 +116,6 @@
   .nav-toggle {
     display: flex;
     padding: 10px;
-    margin-left: -10px;
   }
   .nav-toggle.open span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -112,9 +129,17 @@
     background: var(--red);
   }
   
-  /* Hero Text Scaling */
+  /* Hero Specific Scaling */
+  .h-container {
+    padding: 24px 20px 40px;
+  }
   .h-title {
-    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-size: clamp(1.8rem, 8vw, 2.5rem); /* Scaled down slightly so it fits well */
+  }
+  .h-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 95%;
   }
   .h-stats {
     flex-wrap: wrap;
@@ -123,6 +148,9 @@
   }
   .h-stat {
     flex: 1 1 40%;
+  }
+  .h-stat-num {
+    font-size: 1.3rem;
   }
   .h-stat-sep {
     display: none;
@@ -152,12 +180,16 @@
   
   /* Typography */
   .section-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 }
 
 /* ── SMALL MOBILE (Max: 480px) ── */
 @media (max-width: 480px) {
+  .h-container {
+    padding: 16px 16px 40px;
+    gap: 30px;
+  }
   .h-actions {
     flex-direction: column;
     width: 100%;
@@ -169,7 +201,7 @@
   }
   .h-stat {
     width: 100%;
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--b-glass);
   }
   .h-stat:last-child {
@@ -200,7 +232,7 @@
     padding: 4px;
   }
   .h-platform-ring {
-    width: 90%;
+    width: 95%;
   }
   
   .theater-screen {
