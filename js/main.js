@@ -107,7 +107,7 @@ function initHero() {
       return `
         <div class="h-film-item${i === 0 ? ' active' : ''}" role="button" tabindex="0" data-idx="${i}" aria-label="معاينة: ${escAttr(v.title)}">
           <div class="h-film-thumb">
-            <div class="video-thumb-ph"><span class="video-thumb-icon">🎥</span></div>
+            <img src="assets/images/video_banner.png" alt="${escAttr(v.title)}" />
             <div class="h-film-play" aria-hidden="true">
               <div class="h-film-play-icon">
                 <svg viewBox="0 0 24 24"><path fill="white" d="M8 5v14l11-7z"/></svg>
@@ -237,7 +237,7 @@ function renderVideoGrid(vids) {
                data-file="${escAttr(v.file)}" data-title="${escAttr(v.title)}"
                data-desc="${escAttr(v.desc)}" data-cat="${escAttr(v.category)}">
         <div class="video-thumb">
-          <div class="video-thumb-ph"><span class="video-thumb-icon">🎥</span></div>
+          <img src="assets/images/video_banner.png" alt="${escAttr(v.title)}" class="video-banner-img" />
           <div class="v-play-ov" aria-hidden="true">
             <button class="v-play-mini" tabindex="-1">
               <svg viewBox="0 0 24 24"><path fill="white" d="M8 5v14l11-7z"/></svg>
